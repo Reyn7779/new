@@ -1,0 +1,50 @@
+<!-- index.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Area Chart Editor</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        canvas {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #ddd;
+        }
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+        div {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div>
+    <label for="labelInput">Labels:</label>
+    <input type="text" id="labelInput" placeholder="Enter labels, comma-separated">
+</div>
+<div>
+    <label for="dataInput">Data:</label>
+    <input type="text" id="dataInput" placeholder="Enter data values, comma-separated">
+</div>
+<div>
+    <label for="areaColor">Area Color:</label>
+    <input type="color" id="areaColor" value="#4CAF50">
+</div>
+<button onclick="updateChart()">Update Area Chart</button>
+<button onclick="generateRandomColors()">Generate Random Colors</button>
+<button onclick="downloadAsHTML()">Download as HTML</button>
+<button onclick="downloadAsAreaGraph()">Download as .area-grap</button>
+<input type="file" accept=".area-grap" onchange="importAreaGraphFile()">
+<canvas id="myAreaChart" width="600" height="400"></canvas>
+
+<script src="Area-chart.js"></script><script src="/function.js"></script>
+</body>
+</html>

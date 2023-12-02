@@ -1,0 +1,50 @@
+<!-- index.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Box Plot Editor</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        canvas {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #ddd;
+        }
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+        div {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div>
+    <label for="dataInput">Data:</label>
+    <input type="text" id="dataInput" placeholder="Enter data values, comma-separated">
+</div>
+<div>
+    <label for="boxColor">Box Color:</label>
+    <input type="color" id="boxColor" value="#2196F3">
+</div>
+<div>
+    <label for="whiskerColor">Whisker Color:</label>
+    <input type="color" id="whiskerColor" value="#4CAF50">
+</div>
+<button onclick="updateChart()">Update Box Plot</button>
+<button onclick="generateRandomData()">Generate Random Data</button>
+<button onclick="downloadAsHTML()">Download as HTML</button>
+<button onclick="downloadAsBoxPlotGraph()">Download as .boxplot-grap</button>
+<input type="file" accept=".boxplot-grap" onchange="importBoxPlotGraphFile()">
+<canvas id="myBoxPlotChart" width="600" height="400"></canvas>
+
+<script src="box-plot.js"></script><script src="/function.js"></script>
+</body>
+</html>

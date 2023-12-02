@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Tool</title>
+    <link rel="stylesheet" href="s.css"> 
+    <br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <a class="Aa" href="/index.html">home</a>
+</head>
+<body>
+    <div id="content" contenteditable="true" aria-placeholder="ffffff"> 
+       
+        <p>created by<mark> Reyn</mark></p>
+    
+    </div>
+    <br>
+    <div class="cickable">
+        <button onclick="boldText()">Bold</button>
+        <button onclick="italicText()">Italic</button>
+        <button onclick="underlineText()">Underline</button>
+        <button onclick="strikeThroughText()">Strikethrough</button>
+        <button onclick="strongText()">Strong</button>
+        <button onclick="subscriptText()">Subscript</button>
+        <button onclick="superscriptText()">Superscript</button>
+        <button onclick="lineBreak()">Line Break</button>
+        <button onclick="insertLink()">Insert Link</button>
+        <button onclick="copyText()"><font color="#29fd0d">copy code and text</font></button>
+        <button onclick="toggleLocalStorage()"><font color="#0936ec">save screen/off</font></button>
+        <button onclick="downloadTableAsPNG()">Download as PNG</button>
+        <select id="fileType">
+            <option value="html">html</option>
+            <option value="txt">txt</option>
+            <option value="png" style="text-decoration: line-through;">png</option>
+            <option value="jpg" style="text-decoration: line-through;">jpg</option>
+        </select>
+        <button onclick="downloadFile()">Download</button>  
+
+        <button onclick="markText()">Mark</button>
+        <input type="color" id="fontColor" onchange="changeFontColor()">
+    </div>
+<br><br><br><br><br><br><br>
+
+<button onclick="openDialog()">Open Help</button>
+<!-- Dialog for help content -->
+<dialog id="helpDialog">
+    <iframe src="help.html" frameborder="0" width="99%" height="500px"></iframe>
+    <button onclick="closeDialog()">Close</button>
+</dialog><br>
+<br><br><br><br><br><br><br><br><br>
+<script>
+            function openDialog() {
+            document.getElementById("helpDialog").showModal();
+        }
+
+        function closeDialog() {
+            document.getElementById("helpDialog").close();
+        }
+
+        function downloadTableAsPNG() {
+    html2canvas(document.getElementById("content")).then(function (canvas) {
+        var link = document.createElement("a");
+        document.body.appendChild(link);
+        link.download = "text-tool.png";
+        link.href = canvas.toDataURL("image/png");
+        link.click();
+        document.body.removeChild(link);
+    });
+}
+
+</script>
+    <script src="script.js"></script>
+    <script src="font-color.js"></script>
+    <script src="mark.js"></script>
+    <script src="s.js"></script>
+    <script src="copy.js"></script>
+    <script src="storage.js"></script>
+    <script src="download.js"></script>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+  <p>png and jpg is not working use "save as png"</p><br><br>
+</body>
+</html>
+

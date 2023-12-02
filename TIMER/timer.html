@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timer</title>
+    <link rel="stylesheet" href="/link.css">
+    
+    <style>
+        #time, #marked-time {
+            border: 1px solid #000;
+            width: 200px;
+            height: 200px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 20px;
+        }
+
+        #marked-time {
+            flex-direction: column;
+            padding: 10px;
+        }
+
+        .marked-item {
+            margin-bottom: 5px;
+        }
+
+        input, button {
+            margin: 5px;
+        }
+        #time {
+        border: 1px solid #000;
+        width: 200px;
+        height: 200px;
+    }
+
+    #marked-time {
+        border: 1px solid #000;
+        width: 200px;
+        height: 200px;
+        overflow: auto; /* Add this line to enable scrolling */
+    }
+    a {
+    display: inline-block;
+    text-decoration: none;
+    color: #3498db;
+    background-color: #fff;
+    padding: 10px 20px;
+    border: 1px solid #3498db;
+    border-radius: 5px;
+    margin-bottom: 20px; /* Add margin to separate link from the rest */
+    transition: background-color 0.3s, color 0.3s;
+}
+
+a:hover {
+    background-color: #3498db;
+    color: #fff;
+}
+    </style>
+</head>
+<body><a href="/index.html">home</a>
+    <input type="number" id="hours" placeholder="Hr">   
+    <input type="number" id="minutes" placeholder="Min">   
+    <input type="number" id="seconds" placeholder="Sec"><br><br>
+    <button onclick="countUp()">Count Up</button>
+    <button onclick="countDown()">Count Down</button>
+    <button onclick="markTime()">Mark</button><br><br><br>
+    <div id="time">00h 00m 00s</div><br><br><br>
+    <div id="marked-time"></div><br><br><br>
+
+    <script>
+        let timer;
+        let markedTimes = [];
+    
+        function countUp() {
+            let totalSeconds = 0;
+    
+            timer = setInterval(function () {
+                const displayTime = formatTime(totalSeconds);
+                document.getElementById('time').innerHTML = displayTime;
+                totalSeconds++;
+            }, 1000);
+        }
+    
+        function countDown() {
+            const hours = parseInt(document.getElementById('hours').value) || 0;
+            const minutes = parseInt(document.getElementById('minutes').value) || 0;
+            const seconds = parseInt(document.getElementById('seconds').value) || 0;
+    
+            let totalSeconds = hours * 3600 + minutes * 60 + seconds;
+    
+            timer = setInterval(function () {
+                if (totalSeconds <= 0) {
+                    clearInterval(timer);
+                    markTime();
+                    alert("Time's up!");
+                    playAlertSound();
+                } else {
+                    const displayTime = formatTime(totalSeconds);
+                    document.getElementById('time').innerHTML = displayTime;
+                    totalSeconds--;
+                }
+            }, 1000);
+        }
+    
+        function markTime() {
+            const currentTime = document.getElementById('time').innerHTML;
+            markedTimes.push(currentTime);
+    
+            updateMarkedTimes();
+        }
+    
+        function updateMarkedTimes() {
+            const markedTimeContainer = document.getElementById('marked-time');
+            markedTimeContainer.innerHTML = markedTimes.map(time => `<div class="marked-item">${time}</div>`).join('');
+        }
+    
+        function formatTime(totalSeconds) {
+            const hours = Math.floor(totalSeconds / 3600);
+            const minutes = Math.floor((totalSeconds % 3600) / 60);
+            const seconds = totalSeconds % 60;
+    
+            return `${formatTimeUnit(hours)}h ${formatTimeUnit(minutes)}m ${formatTimeUnit(seconds)}s`;
+        }
+    
+        function formatTimeUnit(unit) {
+            return unit < 10 ? `0${unit}` : unit;
+        }
+    
+        function playAlertSound() {
+            // Replace 'path/to/sound.mp3' with the path to your audio file
+            new Audio('path/to/sound.mp3').play();
+        }
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Tool-pc</title>
+    <link rel="stylesheet" href="s.css"> 
+    <link rel="stylesheet" href="menu/themes.css">
+    <link rel="stylesheet" href="themes.css">
+    <br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <h3 class="z">created by<mark> Reyn</mark></h3>
+    <h1>for <mark>PC</mark> users</h1>
+    <a class="Aa" href="/index.html">home</a>
+</head>
+<body>
+    <div id="content" contenteditable="true" aria-placeholder="ffffff"> 
+       
+<div><font size="6"><b>Welcom to Reyn's Website</b></font></div><div><b>Visit&nbsp;<a href="https://www.facebook.com/profile.php?id=100093510621665"><font color="#0101f9">Reyn</font></a>&nbsp;on <font color="#005cb3"><u>Facebook</u></font></b></div><div><b><font color="#005cb3"><u><br></u></font></b></div><div><b><font color="#005cb3"><u><br></u></font></b></div>
+    
+    </div>
+    <br>
+    <div class="cickable">
+        <button onclick="boldText()">Bold</button>
+        <button onclick="strongText()">Strong</button>
+        <button onclick="italicText()">Italic</button>
+        <button onclick="underlineText()">Underline</button>
+        <button onclick="strikeThroughText()">Strikethrough</button>
+        <button onclick="addOutline()">Outline</button>
+        <button onclick="subscriptText()">Subscript</button>
+        <button onclick="superscriptText()">Superscript</button><br>
+        <button onclick="toggleLocalStorage()"><font color="#0936ec">save screen/off</font></button>
+        <button onclick="insertLink()">Insert Link</button>
+        <button onclick="lineBreak()">Line Break</button>
+        <button onclick="copyText()"><font color="#29fd0d">copy code and text</font></button>
+        <!----->
+       
+        <button onclick="markText()">Mark</button>
+        <input type="color" id="fontColor" onchange="changeFontColor()">
+        
+        <!----->
+        <div class="options">
+            <label for="fontSize">Font Size:</label>
+            <input type="text" id="fontSizeInput" placeholder="Enter font size">
+            <button onclick="changeTextSize()">Change Size</button>
+        </div>
+            <button onclick="undo()">Undo</button>
+            <button onclick="redo()">Redo</button>
+            
+<!-------------------------------------------------------------------------------------------------->
+<!-------------------------------------------------------------------------------------------------->
+<!-------------------------------------------------------------------------------------------------->
+<!-------------------------------------------------------------------------------------------------->
+<!-------------------------------------------------------------------------------------------------->
+<!-------------------------------------------------------------------------------------------------->
+<!-------------------------------------------------------------------------------------------------->
+<!-------------------------------------------------------------------------------------------------->
+<!-------------------------------------------------------------------------------------------------->
+<!-------------------------------------------------------------------------------------------------->
+<!-------------------------------------------------------------------------------------------------->
+<!-------------------------------------------------------------------------------------------------->
+<!-------------------------------------------------------------------------------------------------->
+    <button onclick="insertTable()">Insert Table</button>
+
+
+    <button onclick="downloadFile()">Download</button>
+<button onclick="downloadTableAsPNG()">Download as PNG</button>
+<select id="fileType">
+    <option value="html">html</option>
+    <option value="txt">txt</option>
+    <option value="png" style="text-decoration: line-through;">png</option>
+    <option value="jpg" style="text-decoration: line-through;">jpg</option>
+</select> 
+<br>
+<button onclick="openMenu()">Open Menu</button>
+<button onclick="openHelpDialog()">Open Help</button>
+<dialog id="helpDialog">
+    <iframe src="help.html" frameborder="0" width="99%" height="500px"></iframe>
+    <button onclick="closeHelpDialog()">Close</button>
+</dialog>
+
+
+<div class="options">
+    <label for="textAlignment">Text Alignment:</label>
+    <select id="textAlignment" onchange="changeTextAlignment()">
+        <option value="left">Left</option>
+        <option value="center">Center</option>
+        <option value="right">Right</option>
+        <option value="justify">Justify</option>
+    </select>
+
+
+
+    <button onclick="insertList('ul')">Insert Unordered List</button>
+    <button onclick="insertList('ol')">Insert Ordered List</button>
+
+</div>
+
+
+
+
+
+    <script src="list.js"></script>
+    <script src="script.js"></script>
+    <script src="font-color.js"></script>
+    <script src="mark.js"></script>
+    <script src="s.js"></script>
+    <script src="copy.js"></script>
+    <script src="storage.js"></script>
+    <script src="download.js"></script>
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+    <script src="updates.js"></script>
+    <script src="outline.js">//outline.js</script>
+    <script src="size.js"></script>
+    <script src="dialog.js"></script>
+    <script src="menu/menu.js"></script> <!-- Add this line -->
+<br>
+  <p>png and jpg is not working use "save as png"</p><br><br>
+</body>
+</html>

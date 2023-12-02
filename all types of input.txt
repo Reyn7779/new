@@ -1,0 +1,46 @@
+<!-- Text Input: Used for general text input -->
+<input type="text" name="username" placeholder="Username">
+
+<!-- Password Input: Used for password entry -->
+<input type="password" name="password" placeholder="Password">
+
+<!-- Email Input: Used for email addresses -->
+<input type="email" name="email" placeholder="Email">
+
+<!-- Number Input: Used for numeric input -->
+<input type="number" name="quantity" min="1" max="100" placeholder="Quantity">
+
+<!-- Checkbox: Used for multiple-choice options, can have multiple checkboxes with the same name -->
+<input type="checkbox" name="subscribe" id="subscribe" checked>
+<label for="subscribe">Subscribe to newsletter</label>
+
+<!-- Radio Buttons: Used for single-choice options -->
+<input type="radio" name="gender" id="male" value="male">
+<label for="male">Male</label>
+
+<input type="radio" name="gender" id="female" value="female">
+<label for="female">Female</label>
+
+<!-- File Input: Used for file uploads -->
+<input type="file" name="file" accept=".jpg, .jpeg, .png">
+
+<!-- Date Input: Used for date selection -->
+<input type="date" name="birthdate">
+
+<!-- Time Input: Used for time selection -->
+<input type="time" name="meeting-time">
+
+<!-- Color Picker: Used for color selection -->
+<input type="color" name="color">
+
+<!-- Range Input: Used for a range of numeric values -->
+<input type="range" name="volume" min="0" max="100">
+
+<!-- Textarea: Used for multiline text input -->
+<textarea name="message" placeholder="Enter your message"></textarea>
+
+<!-- Search Input: Used for search queries -->
+<input type="search" name="search" placeholder="Search">
+
+<!-- Hidden Input: Used to store information not displayed on the page -->
+<input type="hidden" name="token" value="abc123">

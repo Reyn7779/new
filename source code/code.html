@@ -1,0 +1,85 @@
+<div id="content" contenteditable="true">
+    <!-- Make the contenteditable div to allow text selection -->
+    This is editable content. Select text and use the buttons below.
+</div>
+<script>let originalText = "";
+
+    function markText() {
+        let selection = window.getSelection();
+        let selectedText = selection.toString();
+    
+        if (selectedText !== "") {
+            let markElement = document.createElement("mark");
+            markElement.style.backgroundColor = document.getElementById("colorPicker").value;
+            markElement.textContent = selectedText;
+    
+            // Save the original text
+            originalText = document.getElementById("content").innerHTML;
+    
+            // Create a range for the selected text
+            let range = selection.getRangeAt(0);
+    
+            // Delete the contents of the range
+            range.deleteContents();
+    
+            // Insert the marked element at the start of the range
+            range.insertNode(markElement);
+    
+            // Clear the selection
+            selection.removeAllRanges();
+        }
+    }
+    
+    function addParagraph() {
+        let selection = window.getSelection();
+        let paragraphText = selection.toString();
+    
+        if (paragraphText !== "") {
+            let paragraphElement = document.createElement("p");
+            paragraphElement.textContent = paragraphText;
+    
+            // Save the original text
+            originalText = document.getElementById("content").innerHTML;
+    
+            // Create a range for the selected text
+            let range = selection.getRangeAt(0);
+    
+            // Delete the contents of the range
+            range.deleteContents();
+    
+            // Insert the paragraph element at the start of the range
+            range.insertNode(paragraphElement);
+    
+            // Clear the selection
+            selection.removeAllRanges();
+        }
+    }
+    
+    function copyMarkedCode() {
+        let content = document.getElementById("content");
+        let markedCode = content.innerHTML;
+        copyToClipboard(markedCode);
+        alert("Marked code copied to clipboard!");
+    }
+    
+    function copyOriginalText() {
+        copyToClipboard(originalText);
+        alert("Original text copied to clipboard!");
+    }
+    
+    function resetColor() {
+        let markedElements = document.querySelectorAll("mark");
+        markedElements.forEach(element => {
+            element.style.backgroundColor = "";
+        });
+    }
+    
+    function copyToClipboard(text) {
+        const tempInput = document.createElement("textarea");
+        tempInput.value = text;
+        document.body.appendChild(tempInput);
+        tempInput.select();
+        document.execCommand("copy");
+        document.body.removeChild(tempInput);
+    }
+    </script>

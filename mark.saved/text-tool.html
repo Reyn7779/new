@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Tool</title>
+    <link rel="stylesheet" href="s.css"> 
+    <a href="/index.html">home</a>
+</head>
+<body>
+    <div id="content" contenteditable="true" aria-placeholder="ffffff"> 
+      
+       
+    
+    </div>
+    <br><div class="cickable">
+    <button onclick="boldText()">Bold</button>
+    <button onclick="italicText()">Italic</button>
+    <button onclick="underlineText()">Underline</button>
+    <button onclick="strikeThroughText()">Strikethrough</button>
+    <button onclick="strongText()">Strong</button>
+    <button onclick="emphasizeText()">Emphasize</button>
+    <button onclick="markText()">Mark</button>
+    <button onclick="subscriptText()">Subscript</button>
+    <button onclick="superscriptText()">Superscript</button>
+    <button onclick="insertText()">Insert</button>
+    <button onclick="lineBreak()">Line Break</button>
+    <button onclick="copyText()">copy code and text</button>
+    <button onclick="toggleLocalStorage()"><b><mark style="background-color: rgb(0, 0, 0);"><mark style="background-color: rgb(7, 172, 242);">enable reset/not</mark></mark></b></button>
+    <button onclick="clearFormatting()">Clear Formatting</button>
+    <div color="#0feb63"><b><i><mark style="background-color: rgb(15, 235, 99);">color for mark</mark></i></b></div>
+    <input type="color" id="fontColor" onchange="changeFontColor()">
+    </div>
+    <script src="script.js"></script>
+    <script src="font-color.js"></script>
+    <script src="mark.js"></script>
+    <script src="copy.js"></script>
+    <script src="storage.js"></script>
+</body>
+</html>

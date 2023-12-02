@@ -1,0 +1,67 @@
+#game-container {
+    position: relative;
+    width: 400px;
+    height: 400px; /* Increased height to accommodate blocks */
+    border: 1px solid #c67575;
+    overflow: hidden;
+    text-align: center;
+}
+
+#ball {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: #3498db; /* Blue color for the ball */
+    border-radius: 50%;
+}
+
+#paddle {
+    position: absolute;
+    width: 80px;
+    height: 10px;
+    background-color: #333;
+    bottom: 10px;
+}
+
+#score {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 18px;
+    color: #333;
+}
+
+#countdown {
+    position: absolute;
+    font-size: 36px;
+    color: #333;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+}
+
+/* Styling for the blocks */
+.block {
+    width: 60px;
+    height: 20px;
+    background-color: #0095DD; /* Blue color for the blocks */
+    margin: 10px;
+}
+
+/* Clearfix for the blocks container */
+.blocks-container::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+/* Responsive styling for the blocks */
+@media (max-width: 400px) {
+    .block {
+        width: 40px;
+        height: 15px;
+        margin: 5px;
+    }
+}

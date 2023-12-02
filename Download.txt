@@ -1,0 +1,60 @@
+// download.js
+
+function downloadFile() {
+    // Get the selected file type from the dropdown
+    var fileType = document.getElementById("fileType").value;
+
+    // Get the content of the contenteditable div
+    var content = document.getElementById("content").innerHTML;
+
+    // Convert images to data URLs
+    content = convertImagesToDataUrls(content);
+
+    // Create a Blob with the correct MIME type for the selected file type
+    var blob;
+    if (fileType === "html") {
+        blob = new Blob([content], { type: "text/html" });
+    } else if (fileType === "txt") {
+        blob = new Blob([content], { type: "text/plain" });
+    } else {
+        // For other file types or text-only
+        blob = new Blob([content], { type: "text/" + fileType });
+    }
+
+    // Create a download link
+    var a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+
+    // Set the download filename based on the selected file type
+    a.download = "content." + fileType;
+
+    // Append the link to the body and click it to trigger the download
+    document.body.appendChild(a);
+    a.click();
+
+    // Remove the link from the body
+    document.body.removeChild(a);
+}
+
+function convertImagesToDataUrls(content) {
+    // Create a temporary div to parse the content
+    var tempDiv = document.createElement("div");
+    tempDiv.innerHTML = content;
+
+    // Select all image elements
+    var images = tempDiv.querySelectorAll("img");
+
+    // Convert each image to a data URL
+    images.forEach(function (img) {
+        var canvas = document.createElement("canvas");
+        canvas.width = img.width;
+        canvas.height = img.height;
+        var ctx = canvas.getContext("2d");
+        ctx.drawImage(img, 0, 0, img.width, img.height);
+        var dataUrl = canvas.toDataURL("image/png");
+        img.src = dataUrl;
+    });
+
+    // Return the updated content with data URLs
+    return tempDiv.innerHTML;
+}

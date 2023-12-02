@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Converter</title>
+    <style>
+    body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+        background-color: #f4f4f4; /* Background color */
+    }
+
+    .converter {
+        text-align: center;
+        background-color: #fff; /* Form background color */
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Box shadow for a subtle effect */
+        width: 100%;
+        max-width: 800px; /* Set a maximum width for larger screens */
+    }
+
+    textarea {
+        width: 100%;
+        margin-bottom: 10px;
+        padding: 10px;
+        box-sizing: border-box;
+        border: 1px solid #ccc; /* Border for textareas */
+        border-radius: 4px;
+    }
+
+    select,
+    button {
+        padding: 10px;
+        cursor: pointer;
+        border: none;
+        border-radius: 4px;
+        color: #fff;
+    }
+
+    select {
+        width: 100%;
+        margin-bottom: 10px;
+        background-color: #4caf50; /* Select background color */
+    }
+
+    button {
+        background-color: #4caf50; /* Button background color */
+    }
+
+    button:hover {
+        background-color: #45a049; /* Button background color on hover */
+    }
+
+    @media (max-width: 600px) {
+        /* Adjust styles for smaller screens */
+        .converter {
+            padding: 15px;
+        }
+
+        textarea {
+            margin-bottom: 8px;
+        }
+
+        select,
+        button {
+            padding: 8px;
+        }
+    }
+    </style>
+</head>
+<body>
+    <div class="converter">
+        <iframe src="help.html" frameborder="0"></iframe>
+        <textarea id="inputText" placeholder="Enter text..." style="width: 585px; height: 92px;" oninput="autoConvert()"></textarea>
+        <select id="conversionType">
+            <option value="encode">view html</option>
+            <option value="decode">HTML result</option>
+        </select>
+        <button onclick="convertText()">Convert</button>
+        <button onclick="copyToClipboard()">Copy to Clipboard</button>
+        <textarea id="outputText" placeholder="Result..." style="height: 335px; width: 617px;"></textarea>
+    </div>
+    <script>
+        function autoConvert() {
+            // Trigger the conversion function when the input changes
+            convertText();
+        }
+
+        function convertText() {
+            var inputText = document.getElementById("inputText").value;
+            var outputText = document.getElementById("outputText");
+            var conversionType = document.getElementById("conversionType").value;
+
+            if (conversionType === "encode") {
+                outputText.value = htmlEncode(inputText);
+            } else if (conversionType === "decode") {
+                outputText.value = htmlDecode(inputText);
+            }
+        }
+
+        function htmlEncode(text) {
+            var el = document.createElement("div");
+            el.innerText = text;
+            return el.innerHTML;
+        }
+
+        function htmlDecode(text) {
+            var el = document.createElement("div");
+            el.innerHTML = text;
+            return el.innerText;
+        }
+
+        function copyToClipboard() {
+            var outputText = document.getElementById("outputText");
+            outputText.select();
+            document.execCommand("copy");
+            // You can provide user feedback here, like changing the button text briefly
+        }
+    </script>
+</body>
+</html>

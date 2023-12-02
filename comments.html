@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comments</title>
+    <style>
+        /* Form styles */
+        #comment-form-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            max-width: 400px;
+            margin: 20px auto;
+        }
+
+        #comment-form-container input,
+        #comment-form-container textarea,
+        #comment-form-container button,
+        #comment-form-container select {
+            margin-bottom: 15px;
+            padding: 10px;
+            border: 1px solid #00b3ff;
+            border-radius: 5px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        #comment-form-container {
+            background-color: #4189d7;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        #comment-form-container button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Comments container styles */
+        #comments-container {
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            border-radius: 8px;
+            max-width: 400px;
+            margin: auto;
+            border: 1px solid #000;
+            overflow-y: auto;
+            max-height: 300px;
+        }
+
+        /* Rest of your styles remain the same */
+    </style>
+
+</head>
+<body>
+   <!-- Add the action attribute to the form element -->
+<form id="comment-form" action="comment.php" method="POST">
+    <div class="content-wrapper">
+    <div id="comments-container">
+    </div>
+        <div id="comment-form-container">
+    <input type="text" id="name" name="name" placeholder="Your Name" required>
+    <input type="color" id="nameColor" name="nameColor" title="Choose your name color">
+    <textarea id="comment" name="comment" placeholder="Your Comment" required></textarea>
+    <button type="submit" onclick="submitComment()">Submit</button>
+    <a href="Quiz/other html/help.html"><button>?</button></a>
+    </div>
+    <a href="index.html">Home</a>
+
+</form>
+<br>
+<!-- Place this code where you want the ad to appear -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="your-ad-client-id"
+     data-ad-slot="your-ad-slot-id"
+     data-ad-format="auto"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+<script src="color-changer"></script>
+<script src="Quiz/js/comment.js"></script> 
+</body>
+</html>

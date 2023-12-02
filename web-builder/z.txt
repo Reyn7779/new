@@ -1,0 +1,15 @@
+i want to type and show a text:function viewText() {
+    var textValue = document.getElementById('inputText').value;
+    document.getElementById('view-text-p').innerText = textValue;
+    document.getElementById('view-text-h1').innerText = textValue;
+    document.getElementById('view-text-h2').innerText = textValue;
+    document.getElementById('view-text-h3').innerText = textValue;
+    document.getElementById('view-text-h4').innerText = textValue;
+    document.getElementById('view-text-h5').innerText = textValue;
+    document.getElementById('b').innerText = textValue;
+    document.getElementById('ins').innerText = textValue;
+    document.getElementById('strong').innerText = textValue; 
+    document.getElementById('deleted').innerText = textValue;
+    document.getElementById('button').innerText = textValue;
+
+}
